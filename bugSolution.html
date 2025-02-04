@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <script>
+    // Solution: Use DOM methods to add content without removing event listeners
+    const myDiv = document.getElementById("myDiv");
+    myDiv.addEventListener("click", function() {
+      alert('This click event listener works!');
+    });
+    const newParagraph = document.createElement("p");
+    newParagraph.textContent = "This text is added using DOM methods.";
+    myDiv.appendChild(newParagraph);
+  </script>
+</body>
+</html>
