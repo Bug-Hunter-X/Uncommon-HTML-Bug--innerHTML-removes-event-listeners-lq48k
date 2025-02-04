@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <script>
+    // Incorrect use of innerHTML, leading to unexpected behavior
+    document.getElementById("myDiv").innerHTML = "<p>This text replaces the div content, but also removes event listeners!</p>";
+    document.getElementById("myDiv").addEventListener("click", function() {
+      alert('This click event listener will NOT fire after innerHTML is used.');
+    });
+  </script>
+</body>
+</html>
